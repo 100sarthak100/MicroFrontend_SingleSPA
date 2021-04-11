@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
+
+  <title>Root Config</title>
+  <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <meta name="importmap-type" content="systemjs-importmap" />
+
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js"
+      }
+    }
+  </script>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
+
+  <% if (isLocal) { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@cardinalhealth/root-config": "//localhost:9000/cardinalhealth-root-config.js",
+        "@cardinalhealth/main": "http://localhost:9001/cardinalhealth-main.js",
+        "@cardinalhealth/nav-footer": "http://localhost:9002/js/app.js",
+        "@cardinalhealth/card1": "http://localhost:9003/cardinalhealth-card1.js",
+        "@cardinalhealth/card2": "http://localhost:9004/cardinalhealth-card2.js"
+      }
+    }
+  </script>
+  <% } %>
+
+  <style type="text/css">
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+    body {
+      background: #eaeded;
+      margin: 0;
+      font-family: 'Poppins';
+    }
+
+    section {
+      padding: 5em 2em;
+    }
+
+    section.card1 {
+      padding: 0;
+    }
+
+    section.card2 {
+      padding: 1em;
+      margin: 1em;
+    }
+
+    section.main {
+      padding: 1em;
+      margin: 1em;
+    }
+
+    .card1 {
+      text-align: center;
+    }
+  </style>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
+  <% if (isLocal) { %>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+  <% } else { %>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+  <% } %>
+</head>
+
+<body>
+  <div id="layout-app"></div>
+
+  <section class="card1">
+    <div id="card1" class="card1"></div>
+  </section>
+
+  <section class="card2">
+    <div id="card2" class="card2"></div>
+  </section>
+
+  <section class="main">
+    <div id="main" class="main"></div>
+  </section>
+
+  <script>
+    System.import('@cardinalhealth/root-config');
+  </script>
+  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</body>
+
+</html>
