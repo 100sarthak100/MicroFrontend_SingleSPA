@@ -18,8 +18,10 @@
 
 &nbsp;
 ### The Micro Frontend applications are also connected with the Spring Boot microservices and uses MongoDB as a database.
-- Spring Boot 1 -> card2
-- Spring boot 3 -> main
+- springbootcard2 -> card2 (React)
+- springbootmain -> main (React)
+
+#### Spring boot application can be found here -> https://github.com/100sarthak100/SpringBoot_Microservices
 
 &nbsp;
 ## Project setup
