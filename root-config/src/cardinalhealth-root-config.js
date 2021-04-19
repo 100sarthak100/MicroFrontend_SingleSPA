@@ -11,21 +11,57 @@ registerApplication(
 registerApplication(
   "@cardinalhealth/main",
   () => System.import("@cardinalhealth/main"),
-  isActive.main,
+  // isActive.main,
+  (location) => (
+    location.pathname.startsWith('')
+  ),
   { domElement: document.getElementById("main") }
 );
 
-registerApplication(
-  "@cardinalhealth/card1",
+// const loading1Function = () => import('./app1/app1.js')
+// const activity1Function = location => location.hash.startsWith('#/app1')
+
+// const loading2Function = () => import('./app2/app2.js')
+// const activity2Function = location => location.hash.startsWith('#/app2')
+
+registerApplication('@cardinalhealth/card1',
   () => System.import("@cardinalhealth/card1"),
-  isActive.card1,
+  (location) => (
+    location.pathname.startsWith('') && !location.pathname.startsWith('/products')
+  ),
   { domElement: document.getElementById("card1") }
-);
+)
+
+// registerApplication({
+//   name: '@cardinalhealth/card1',
+//   app: () => System.import('@cardinalhealth/card1'),
+//   activeWhen: ['' && ! '/products/:id'],
+//   customProps(appName, location) {
+//     return {
+//       domElement: document.getElementById("card1"),
+//       // activeWhen: '' | '/as'
+//     }
+//   }
+//   // customProps: {
+//   //   domElement: document.getElementById("card1")
+//   // }
+// })
+// singleSpa.registerApplication('app2', loading2Function, activity2Function)
+
+// registerApplication(
+//   "@cardinalhealth/card1",
+//   () => System.import("@cardinalhealth/card1"),
+//   isActive.card1,
+//   { domElement: document.getElementById("card1") }
+// );
 
 registerApplication(
   "@cardinalhealth/card2",
   () => System.import("@cardinalhealth/card2"),
-  isActive.card2,
+  // isActive.card2,
+  (location) => (
+    location.pathname.startsWith('') && !location.pathname.startsWith('/products')
+  ),
   { domElement: document.getElementById("card2") }
 );
 
@@ -37,3 +73,16 @@ registerApplication(
 // );
 
 start();
+
+// import * as singleSpa from 'single-spa'
+
+// const loading1Function = () => import('./app1/app1.js')
+// const activity1Function = location => location.hash.startsWith('#/app1')
+
+// const loading2Function = () => import('./app2/app2.js')
+// const activity2Function = location => location.hash.startsWith('#/app2')
+
+// singleSpa.registerApplication('app1', loading1Function, activity1Function)
+// singleSpa.registerApplication('app2', loading2Function, activity2Function)
+
+// singleSpa.start()

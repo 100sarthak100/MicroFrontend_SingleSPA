@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import productImg from '../../../../static/images/product_1.PNG'
+import { Link } from "react-router-dom";
+import productImg from '../../../../static/images/product_1.PNG';
 
 const Product = ({ p }) => {
     return (
@@ -18,7 +19,9 @@ const Product = ({ p }) => {
                 </div>
 
                 <div style={{ padding: "1em", paddingTop: "0.5em" }}>
-                    <a href="#" style={{ color: "#007185", alignItems: "flex-start", textDecoration: "none" }}>view details</a>
+                    <Link to={`/products/${p.productId}`}>
+                        view details
+                    </Link>
                 </div>
             </Card>
         </>

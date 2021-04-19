@@ -44,7 +44,7 @@ export class Cards2 extends Component {
                     {this.state.cards.length ?
                         this.state.cards.map((c) =>
                             <Card2 c={c} key={c.cardId} />
-                        ) : <h3>Loading Cards2...</h3>
+                        ) : <h2>Loading...</h2>
                     }
                 </div>
             </>
