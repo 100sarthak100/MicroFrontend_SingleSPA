@@ -27,7 +27,7 @@ registerApplication(
 registerApplication('@cardinalhealth/card1',
   () => System.import("@cardinalhealth/card1"),
   (location) => (
-    location.pathname.startsWith('') && !location.pathname.startsWith('/products')
+    location.pathname.startsWith('') && !location.pathname.startsWith('/products') && !location.pathname.startsWith('/cart')
   ),
   { domElement: document.getElementById("card1") }
 )
@@ -60,7 +60,7 @@ registerApplication(
   () => System.import("@cardinalhealth/card2"),
   // isActive.card2,
   (location) => (
-    location.pathname.startsWith('') && !location.pathname.startsWith('/products')
+    location.pathname.startsWith('') && !location.pathname.startsWith('/products') && !location.pathname.startsWith('/cart')
   ),
   { domElement: document.getElementById("card2") }
 );
