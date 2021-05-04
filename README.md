@@ -13,6 +13,7 @@
 - Card carousal -> React (card1)
 - Products cards -> React (card2)
 - Products cards -> React (main)
+- Services page -> Angular (services)
 - Main container -> Single SPA root config -> (root-config)
 
 #### The Micro Frontend applications are also connected with the Spring Boot microservices and uses MongoDB as a database.
@@ -45,6 +46,10 @@ npm start
 cd nav-footer
 npm install
 npm run serve
+
+cd services
+npm install
+npm start
 
 cd root-config
 npm install
