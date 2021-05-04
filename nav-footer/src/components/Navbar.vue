@@ -29,10 +29,17 @@
         </ul>
 
         <div class="collapse navbar-collapse">
-          <form class="form-inline my-2 my-lg-0 mx-auto" style="display: flex">
+          <form
+            class="form-inline my-2 my-lg-0 mx-auto"
+            style="display: flex"
+            id="searchForm"
+            @submit="formSubmit"
+          >
             <input
               class="form-control"
-              type="search"
+              type="text"
+              name="productSearch"
+              v-model="productSearch"
               placeholder="Search for products..."
               aria-label="Search"
               style="margin-right: 10px"
@@ -73,6 +80,7 @@
         </div>
       </div>
     </nav>
+    <div>{{ productSearch }}</div>
 
     <nav class="navbar navbar-expand-md navbar-light bg-dark sub-menu">
       <div class="container">
@@ -84,7 +92,7 @@
               ></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="/services">Services</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Professional Products</a>
@@ -122,10 +130,16 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <form class="form-inline mb-3 mx-auto">
+            <form
+              class="form-inline mb-3 mx-auto"
+              id="searchForm"
+              @submit="formSubmit"
+            >
               <input
                 class="form-control"
-                type="search"
+                type="text"
+                name="productSearch"
+                v-model="productSearch"
                 placeholder="Search for products..."
                 aria-label="Search"
               />
@@ -526,3 +540,20 @@ ul.social-icons li {
   right: 0;
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      productSearch: "",
+    };
+  },
+  methods: {
+    formSubmit() {
+      // console.log(this.productSearch);
+      localStorage.productSearch = this.productSearch;
+      this.productSearch = "";
+    },
+  },
+};
+</script>

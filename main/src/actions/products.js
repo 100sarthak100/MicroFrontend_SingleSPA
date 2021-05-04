@@ -15,6 +15,19 @@ export const getProducts = () => async (dispatch) => {
     }
 };
 
+export const getProductByName = (productName) => async (dispatch) => {
+    try {
+        const { data } = await api.fetchProductByName(productName);
+        const action = {
+            type: FETCH_ALL,
+            payload: data
+        }
+        dispatch(action);
+    } catch (error) {
+        console.log(error)
+    }
+};
+
 export const getProductById = (productId) => async (dispatch) => {
     try {
         console.log("before data", productId, data);

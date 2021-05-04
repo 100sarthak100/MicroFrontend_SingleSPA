@@ -1,6 +1,6 @@
 # MicroFrontend Architecture using Single SPA
 
-![alt text](/GithubImages/arch2.svg)
+![alt text](/GithubImages/arch.svg)
 
 &nbsp;
 

@@ -26,15 +26,15 @@ const ProductDetails = (props) => {
 
     return (
         <>
-            <div style={{ padding: "1rem", paddingLeft: "0" }}>
+            <div style={{ margin: "1em", padding: "1rem", paddingLeft: "0" }}>
                 <Link to="/" >Back to products</Link>
             </div>
             { msg && <Alert variant="success">{msg}</Alert>}
             {
                 !product ? (
-                    <h2>Loading...</h2>
+                    <h2 style={{ margin: "1em", padding: "1rem" }}>Loading...</h2>
                 ) : (
-                        <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-start", flexWrap: "wrap" }}>
+                        <div style={{ margin: "1em", padding: "1em", display: "flex", justifyContent: "space-around", alignItems: "flex-start", flexWrap: "wrap" }}>
                             <div style={{ flex: "1 1 15rem", width: "25em", height: "15em" }}>
                                 <img src={product.productImgFile} alt="product" style={{ width: "25em", height: "15em" }} />
                             </div>

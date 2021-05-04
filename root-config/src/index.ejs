@@ -36,7 +36,8 @@
         "@cardinalhealth/main": "http://localhost:9001/cardinalhealth-main.js",
         "@cardinalhealth/nav-footer": "http://localhost:9002/js/app.js",
         "@cardinalhealth/card1": "http://localhost:9003/cardinalhealth-card1.js",
-        "@cardinalhealth/card2": "http://localhost:9004/cardinalhealth-card2.js"
+        "@cardinalhealth/card2": "http://localhost:9004/cardinalhealth-card2.js",
+        "services": "http://localhost:4200/main.js"
       }
     }
   </script>
@@ -60,13 +61,19 @@
     }
 
     section.card2 {
-      padding: 1em;
-      margin: 1em;
+      padding: 0;
+      /* padding: 1em;
+      margin: 1em; */
     }
 
     section.main {
-      padding: 1em;
-      margin: 1em;
+      padding: 0;
+      /* padding: 1em;
+      margin: 1em; */
+    }
+
+    section.services {
+      padding: 0;
     }
 
     .card1 {
@@ -98,6 +105,10 @@
 
   <section class="main">
     <div id="main" class="main"></div>
+  </section>
+
+  <section class="services">
+    <div id="services" class="services"></div>
   </section>
 
   <script>

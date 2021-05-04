@@ -1,18 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Product from './Product/Product';
-import { getProducts } from '../../actions/products';
+import { getProducts, getProductByName } from '../../actions/products';
 import { Alert } from 'react-bootstrap';
 
 const Products = () => {
     const [msg, setMsg] = useState('');
+    const [productSearch, setProductSearch] = useState('');
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getProducts());
-    }, [dispatch]);
+        setProductSearch(localStorage.getItem('productSearch'))
+        console.log(productSearch);
+        if ((productSearch == "" || productSearch === 'null')) {
+            console.log("all")
+            dispatch(getProducts());
+        } else if ((productSearch !== 'null' || productSearch !== "")) {
+            console.log("One", productSearch);
+            dispatch(getProductByName(productSearch));
+            // setProductSearch('');
+        }
+    });
+
+    // useEffect(() => {
+    //     setProductSearch(localStorage.getItem('productSearch'))
+    //     console.log("from react", productSearch);
+    // }, [productSearch])
+
+    // useEffect(() => {
+    //     window.addEventListener('storage', () => {
+    //         const item = localStorage.getItem('productSearch')
+    //         console.log("change", item);
+    //         setProductSearch(item);
+    //     })
+    // }, [localStorage.getItem('productSearch')])
 
     const products = useSelector(state => state.products);
+    console.log(products);
 
     return (
         <>{msg && <Alert variant="danger">{msg}</Alert>}
@@ -20,7 +44,7 @@ const Products = () => {
                 !products ? (
                     <h2>Loading...</h2>
                 ) : (
-                        <div style={{ display: "grid", gridTemplateColumns: "auto auto auto auto auto", gridRowGap: "0.7em", gridColumnGap: "0.6em", justifyContent: "space-around" }}>
+                        <div style={{ margin: "1em", padding: "1em", display: "grid", gridTemplateColumns: "auto auto auto auto auto", gridRowGap: "0.7em", gridColumnGap: "0.6em", justifyContent: "space-around" }}>
                             {
                                 products.map((p) =>
                                     <Product p={p} key={p.productId} />
