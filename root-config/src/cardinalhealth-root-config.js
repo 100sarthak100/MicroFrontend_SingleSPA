@@ -23,7 +23,7 @@ registerApplication('@cardinalhealth/card1',
   () => System.import("@cardinalhealth/card1"),
   (location) => (
     // location.pathname.starsWith('/search?')
-    location.pathname.startsWith('') && !location.pathname.startsWith('/?productSearch=') && !location.pathname.startsWith('/products') && !location.pathname.startsWith('/services') && !location.pathname.startsWith('/cart')
+    location.pathname.startsWith('') && !location.pathname.startsWith('/#/search?') && !location.pathname.startsWith('/products') && !location.pathname.startsWith('/services') && !location.pathname.startsWith('/cart')
   ),
   { domElement: document.getElementById("card1") }
 )

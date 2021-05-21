@@ -33,7 +33,6 @@
             class="form-inline my-2 my-lg-0 mx-auto"
             style="display: flex"
             id="searchForm"
-            @submit="formSubmit"
           >
             <input
               class="form-control"
@@ -44,7 +43,11 @@
               aria-label="Search"
               style="margin-right: 10px"
             />
-            <button class="btn btn-warning my-2 my-sm-0" type="submit">
+            <button
+              class="btn btn-warning my-2 my-sm-0"
+              type="submit"
+              @click.stop.prevent="formSubmit"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -80,7 +83,7 @@
         </div>
       </div>
     </nav>
-    <div>{{ productSearch }}</div>
+    <!-- <div>{{ productSearch }}</div> -->
 
     <nav class="navbar navbar-expand-md navbar-light bg-dark sub-menu">
       <div class="container">
@@ -130,11 +133,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <form
-              class="form-inline mb-3 mx-auto"
-              id="searchForm"
-              @submit="formSubmit"
-            >
+            <form class="form-inline mb-3 mx-auto" id="searchForm">
               <input
                 class="form-control"
                 type="text"
@@ -143,7 +142,11 @@
                 placeholder="Search for products..."
                 aria-label="Search"
               />
-              <button class="btn btn-warning" type="submit">
+              <button
+                class="btn btn-warning"
+                type="submit"
+                @click.stop.prevent="formSubmit"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -542,6 +545,8 @@ ul.social-icons li {
 </style>
 
 <script>
+// import VueRouter from "vue-router";
+// var router = new VueRouter();
 export default {
   data() {
     return {
@@ -550,10 +555,25 @@ export default {
   },
   methods: {
     formSubmit() {
-      // console.log(this.productSearch);
       localStorage.productSearch = this.productSearch;
       this.productSearch = "";
+      // router.push("/");
+      // this.$router.push("/search?" + productSearch);
+      // router.push({
+      //   path: "",
+      //   query: { productSearch: this.productSearch },
+      // });
     },
+    // reloadPage: function () {
+    //   console.log("yup");
+    // },
   },
+  // mounted: function () {
+  //   window.addEventListener("storage", this.reloadPage);
+  // },
+
+  // unmounted: function () {
+  //   window.removeEventListener("storage", this.reloadPage);
+  // },
 };
 </script>

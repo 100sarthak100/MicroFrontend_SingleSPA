@@ -20,20 +20,7 @@ const Products = () => {
             dispatch(getProductByName(productSearch));
             // setProductSearch('');
         }
-    });
-
-    // useEffect(() => {
-    //     setProductSearch(localStorage.getItem('productSearch'))
-    //     console.log("from react", productSearch);
-    // }, [productSearch])
-
-    // useEffect(() => {
-    //     window.addEventListener('storage', () => {
-    //         const item = localStorage.getItem('productSearch')
-    //         console.log("change", item);
-    //         setProductSearch(item);
-    //     })
-    // }, [localStorage.getItem('productSearch')])
+    })
 
     const products = useSelector(state => state.products);
     console.log(products);
