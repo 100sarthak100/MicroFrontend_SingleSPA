@@ -10,9 +10,11 @@ const Products = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        setProductSearch(localStorage.getItem('productSearch'))
+        var data = JSON.parse(localStorage.getItem('data'));
+        var product = data.productSearch;
+        setProductSearch(product);
         console.log(productSearch);
-        if ((productSearch == "" || productSearch === 'null')) {
+        if ((productSearch == "" || productSearch === 'null' || productSearch == undefined)) {
             console.log("all")
             dispatch(getProducts());
         } else if ((productSearch !== 'null' || productSearch !== "")) {

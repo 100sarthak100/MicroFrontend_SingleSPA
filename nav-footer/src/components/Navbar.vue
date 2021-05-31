@@ -545,35 +545,24 @@ ul.social-icons li {
 </style>
 
 <script>
-// import VueRouter from "vue-router";
-// var router = new VueRouter();
 export default {
   data() {
     return {
       productSearch: "",
+      data: {
+        productSearch: "",
+        jwtToken: "0xvue",
+      },
     };
   },
   methods: {
     formSubmit() {
-      localStorage.productSearch = this.productSearch;
+      this.data.productSearch = this.productSearch;
+      localStorage.setItem("data", JSON.stringify(this.data));
+      // localStorage.data.productSearch = this.productSearch;
+      // console.log(this.data);
       this.productSearch = "";
-      // router.push("/");
-      // this.$router.push("/search?" + productSearch);
-      // router.push({
-      //   path: "",
-      //   query: { productSearch: this.productSearch },
-      // });
     },
-    // reloadPage: function () {
-    //   console.log("yup");
-    // },
   },
-  // mounted: function () {
-  //   window.addEventListener("storage", this.reloadPage);
-  // },
-
-  // unmounted: function () {
-  //   window.removeEventListener("storage", this.reloadPage);
-  // },
 };
 </script>
