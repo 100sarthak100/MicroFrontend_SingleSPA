@@ -34,7 +34,7 @@ const ProductDetails = (props) => {
                 !product ? (
                     <h2 style={{ margin: "1em", padding: "1rem" }}>Loading...</h2>
                 ) : (
-                        <div style={{ margin: "1em", padding: "1em", display: "flex", justifyContent: "space-around", alignItems: "flex-start", flexWrap: "wrap" }}>
+                        <div style={{ margin: "1em", padding: "1em", display: "flex", justifyContent: "space-around", alignItems: "flex-start", flexWrap: "wrap", marginBottom: "11%" }}>
                             <div style={{ flex: "1 1 15rem", width: "25em", height: "15em" }}>
                                 <img src={product.productImgFile} alt="product" style={{ width: "25em", height: "15em" }} />
                             </div>

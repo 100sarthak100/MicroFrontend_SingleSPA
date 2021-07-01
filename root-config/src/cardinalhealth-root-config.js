@@ -2,10 +2,17 @@ import { registerApplication, start } from "single-spa";
 import * as isActive from "./activity-functions";
 
 registerApplication(
-  "@cardinalhealth/nav-footer",
-  () => System.import("@cardinalhealth/nav-footer"),
+  "@cardinalhealth/navbar",
+  () => System.import("@cardinalhealth/navbar"),
   isActive.nav,
   { domElement: document.getElementById("nav") }
+);
+
+registerApplication(
+  "@cardinalhealth/footer",
+  () => System.import("@cardinalhealth/footer"),
+  isActive.nav,
+  { domElement: document.getElementById("footer") }
 );
 
 registerApplication(

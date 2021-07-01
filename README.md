@@ -9,7 +9,8 @@
  
 ## Project Dependencies 
 #### The project uses React, Vue & Single SPA framework & webpack as a module bundler to demonstrate the micro-frontend architecture.
-- Navbar & Footer -> Vue (nav-footer)
+- Navbar -> Vue (navbar)
+- Footer -> Vue (Footer)
 - Card carousal -> React (card1)
 - Products cards -> React (card2)
 - Products cards -> React (main)
@@ -43,7 +44,11 @@ cd main
 npm install
 npm start
 
-cd nav-footer
+cd navbar
+npm install
+npm run serve
+
+cd footer
 npm install
 npm run serve
 
